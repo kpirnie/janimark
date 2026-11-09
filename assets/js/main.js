@@ -137,21 +137,68 @@ document.addEventListener("DOMContentLoaded", () => {
   /**
    * Contact Form
    *
-   * Form submissions require a configured server-side endpoint.
-   * Do not display a success message unless the server confirms delivery.
+   * Submissions are posted to the server-side handler.
+   * A success message is only displayed when the server confirms delivery.
    */
   const quoteForm = document.getElementById("quote-form");
   const formStatus = document.getElementById("form-status");
+  const formToken = document.getElementById("form-token");
 
-  if (quoteForm && formStatus) {
-    quoteForm.addEventListener("submit", (event) => {
+  if (quoteForm && formStatus && formToken) {
+    const submitButton = quoteForm.querySelector('button[type="submit"]');
+
+    const showStatus = (isSuccess, message) => {
+      formStatus.classList.toggle("is-success", isSuccess);
+      formStatus.classList.toggle("is-error", !isSuccess);
+      formStatus.textContent = message;
+    };
+
+    const postToHandler = async (body) => {
+      const response = await fetch(quoteForm.action, {
+        method: "POST",
+        body,
+      });
+
+      return response.json();
+    };
+
+    const loadToken = async () => {
+      try {
+        const result = await postToHandler(
+          new URLSearchParams({ action: "token" }),
+        );
+
+        formToken.value = result.token || "";
+      } catch (error) {
+        formToken.value = "";
+      }
+    };
+
+    loadToken();
+
+    quoteForm.addEventListener("submit", async (event) => {
       event.preventDefault();
 
-      formStatus.classList.remove("is-success");
-      formStatus.classList.add("is-error");
+      submitButton.disabled = true;
 
-      formStatus.textContent =
-        "Online quote requests are not available yet. Please contact us by phone or email.";
+      try {
+        const result = await postToHandler(new FormData(quoteForm));
+
+        showStatus(result.success === true, result.message);
+
+        if (result.success === true) {
+          quoteForm.reset();
+        }
+      } catch (error) {
+        showStatus(
+          false,
+          "We could not send your request. Please contact us by phone or email.",
+        );
+      }
+
+      submitButton.disabled = false;
+
+      loadToken();
     });
   }
 
