@@ -21,5 +21,8 @@
         "sort-packages": true,
         "optimize-autoloader": true,
         "preferred-install": "dist"
+    },
+    "scripts": {
+        "minify": "@php build/minify.php"
     }
 }
