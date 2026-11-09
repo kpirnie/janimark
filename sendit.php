@@ -189,6 +189,7 @@ try {
         : PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = (int) $config['smtp']['port'];
     $mail->CharSet = PHPMailer::CHARSET_UTF8;
+    $mail->Timeout = 15;
 
     // the addresses, replies go to the visitor
     $mail->setFrom($config['mail']['from_email'], $config['mail']['from_name']);
