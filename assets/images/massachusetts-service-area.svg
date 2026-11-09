@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="500"
+     height="260"
+     viewBox="0 0 500 260"
+     role="img"
+     aria-labelledby="map-title map-desc">
+
+    <title id="map-title">Greater Springfield, Massachusetts Service Area</title>
+
+    <desc id="map-desc">
+        Massachusetts state map highlighting Springfield
+        and the surrounding Western Massachusetts service area.
+    </desc>
+
+    <defs>
+        <linearGradient id="state-fill" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#edf2f7"/>
+            <stop offset="100%" stop-color="#dce6ef"/>
+        </linearGradient>
+
+        <radialGradient id="service-highlight">
+            <stop offset="0%" stop-color="#405e7b" stop-opacity="0.35"/>
+            <stop offset="65%" stop-color="#405e7b" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#405e7b" stop-opacity="0"/>
+        </radialGradient>
+
+        <path id="state-outline" d="
+            M323 33.6
+            L333.5 35.3
+            L337.6 53.9
+            L332.9 69
+            L316.1 82.9
+            L315.5 99.2
+            L338.7 101.5
+            L352.7 118.3
+            L350.3 131.7
+            L361.9 135.2
+            L363.1 147.4
+            L392.7 157.8
+            L427 147.9
+            L419.4 162.5
+            L368.9 175.2
+            L350.3 175.8
+            L339.3 165.9
+            L321.9 168.8
+            L321.3 176.4
+            L301.6 181
+            L293.4 161.9
+            L290.5 158.4
+            L279.5 150.8
+            L273.7 125.9
+            L258 125.9
+            L229.6 127
+            L229.6 125.3
+            L96.6 123.6
+            L50.8 122.4
+            L48.4 118.3
+            L74 48.7
+            L159.9 50.4
+            L283 53.9
+            L294.6 44
+            Z
+        "/>
+
+        <clipPath id="state-clip">
+            <use href="#state-outline"/>
+        </clipPath>
+    </defs>
+
+    <!-- State outline -->
+    <use
+        href="#state-outline"
+        fill="url(#state-fill)"
+        stroke="#8299af"
+        stroke-width="1.5"
+        stroke-linejoin="round"
+    />
+
+    <!-- Greater Springfield highlight -->
+    <g clip-path="url(#state-clip)">
+        <circle
+            cx="145.8"
+            cy="116.9"
+            r="72"
+            fill="url(#service-highlight)"
+        />
+    </g>
+
+    <!-- Service area radius -->
+    <circle
+        cx="145.8"
+        cy="116.9"
+        r="46"
+        fill="none"
+        stroke="#405e7b"
+        stroke-width="1.5"
+        stroke-dasharray="5 5"
+        opacity="0.65"
+    />
+
+    <!-- Springfield marker -->
+    <circle
+        cx="145.8"
+        cy="116.9"
+        r="12"
+        fill="#405e7b"
+        opacity="0.2"
+    />
+
+    <circle
+        cx="145.8"
+        cy="116.9"
+        r="6"
+        fill="#405e7b"
+        stroke="#ffffff"
+        stroke-width="2"
+    />
+
+    <!-- Labels -->
+    <g font-family="Arial, Helvetica, sans-serif">
+
+        <text
+            x="145.8"
+            y="205"
+            text-anchor="middle"
+            fill="#2d435b"
+            font-size="16"
+            font-weight="700"
+        >
+            Springfield
+        </text>
+
+        <text
+            x="145.8"
+            y="222"
+            text-anchor="middle"
+            fill="#647184"
+            font-size="11"
+        >
+            Greater Springfield Area
+        </text>
+
+        <text
+            x="245"
+            y="95"
+            text-anchor="middle"
+            fill="#647184"
+            font-size="11"
+            font-weight="700"
+            letter-spacing="1.5"
+        >
+            MASSACHUSETTS
+        </text>
+
+    </g>
+
+</svg>
