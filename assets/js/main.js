@@ -181,6 +181,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       submitButton.disabled = true;
 
+      submitButton.classList.add("is-sending");
+
+      formStatus.classList.remove("is-success", "is-error");
+      formStatus.textContent = "Sending your request...";
+
       try {
         const result = await postToHandler(new FormData(quoteForm));
 
@@ -196,6 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
       }
 
+      submitButton.classList.remove("is-sending");
       submitButton.disabled = false;
 
       loadToken();

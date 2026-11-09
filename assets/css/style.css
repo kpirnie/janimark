@@ -745,6 +745,31 @@ p {
     margin-top: 20px;
 }
 
+.form-submit.is-sending:disabled {
+    cursor: progress;
+}
+
+.form-submit.is-sending .icon {
+    display: none;
+}
+
+.form-submit.is-sending::after {
+    content: "";
+    flex: none;
+    width: 19px;
+    height: 19px;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: form-spin 0.8s linear infinite;
+}
+
+@keyframes form-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .form-status {
     margin: 15px 0 0;
     font-size: 0.875rem;
@@ -1308,6 +1333,11 @@ p {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
+    }
+
+    .form-submit.is-sending::after {
+        animation-duration: 2s !important;
+        animation-iteration-count: infinite !important;
     }
 
 }
