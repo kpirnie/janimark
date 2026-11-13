@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const carousel = document.querySelector(".testimonial-carousel");
   const carouselDots = document.querySelector(".carousel-dots");
 
-  if (carousel && carouselDots) {
+  if (carousel && carouselDots && carousel.querySelector(".testimonial-track")) {
     const track = carousel.querySelector(".testimonial-track");
     const slides = Array.from(carousel.querySelectorAll(".testimonial-slide"));
 

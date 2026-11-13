@@ -190,6 +190,8 @@ try {
     $mail->Port = (int) $config['smtp']['port'];
     $mail->CharSet = PHPMailer::CHARSET_UTF8;
     $mail->Timeout = 15;
+//    $mail->SMTPDebug = 2;
+//    $mail->Debugoutput = 'error_log';
 
     // the addresses, replies go to the visitor
     $mail->setFrom($config['mail']['from_email'], $config['mail']['from_name']);
