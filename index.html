@@ -397,39 +397,54 @@
                 </div>
             </section>
 
-            <!--<section class="section testimonials-section" id="testimonials" aria-labelledby="testimonials-title">
+            <!--
+            <section class="section testimonials-section" id="testimonials" aria-labelledby="testimonials-title">
                 <div class="container">
                     <div class="section-heading section-heading-centered">
-                        <span class="section-eyebrow" id="testimonials-title">
+                        <span class="section-eyebrow">Testimonials</span>
+                        <h2 id="testimonials-title">
                             What Our Clients Say
-                        </span>
+                        </h2>
                     </div>
-                -->
-                    <!--
-                        Add verified customer testimonials here.
-
-                        Example slide structure:
-
-                        <div class="testimonial-slide">
-                            <blockquote>
-                                <p>Actual customer testimonial.</p>
-                                <footer>Customer name or business</footer>
-                            </blockquote>
-                        </div>
-
-                        Multiple slides will be controlled by main.js.
-                    -->
-                    <!--
-                    <div class="testimonial-carousel" role="region" aria-label="Customer testimonials" aria-roledescription="carousel"></div>
+                    <div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating" hidden>
+                        <meta itemprop="ratingValue" content="5">
+                        <meta itemprop="bestRating" content="5">
+                        <meta itemprop="worstRating" content="1">
+                        <meta itemprop="reviewCount" content="2">
+                    </div>
+                    <div class="testimonial-carousel" role="region" aria-label="Customer testimonials" aria-roledescription="carousel">
                         <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous testimonial" disabled>
                             <svg class="icon"><use href="assets/images/icons.svg#icon-chevron-left"></use></svg>
                         </button>
                         <div class="testimonial-viewport" aria-live="polite">
                             <div class="testimonial-track">
-                                <div class="testimonial-slide is-active">
-                                    <p class="testimonial-placeholder">
-                                        Customer testimonials coming soon.
-                                    </p>
+                                <div class="testimonial-slide is-active" itemprop="review" itemscope itemtype="https://schema.org/Review">
+                                    <meta itemprop="datePublished" content="YYYY-MM-DD">
+                                    <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" hidden>
+                                        <meta itemprop="ratingValue" content="5">
+                                        <meta itemprop="bestRating" content="5">
+                                        <meta itemprop="worstRating" content="1">
+                                    </div>
+                                    <blockquote>
+                                        <p itemprop="reviewBody">Actual customer testimonial.</p>
+                                        <footer itemprop="author" itemscope itemtype="https://schema.org/Person">
+                                            <span itemprop="name">Customer Name</span>
+                                        </footer>
+                                    </blockquote>
+                                </div>
+                                <div class="testimonial-slide" itemprop="review" itemscope itemtype="https://schema.org/Review">
+                                    <meta itemprop="datePublished" content="YYYY-MM-DD">
+                                    <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" hidden>
+                                        <meta itemprop="ratingValue" content="5">
+                                        <meta itemprop="bestRating" content="5">
+                                        <meta itemprop="worstRating" content="1">
+                                    </div>
+                                    <blockquote>
+                                        <p itemprop="reviewBody">Actual customer testimonial.</p>
+                                        <footer itemprop="author" itemscope itemtype="https://schema.org/Organization">
+                                            <span itemprop="name">Customer Business Name</span>
+                                        </footer>
+                                    </blockquote>
                                 </div>
                             </div>
                         </div>
@@ -440,7 +455,7 @@
                     <div class="carousel-dots" aria-label="Testimonial navigation"></div>
                 </div>
             </section>
-        -->
+            -->
 
             <section class="section contact-section" id="contact" aria-labelledby="contact-title">
                 <div class="container contact-grid">
