@@ -1,0 +1,21 @@
+# JaniMark LLC
+
+> JaniMark LLC provides professional commercial and office cleaning services for offices and businesses throughout Greater Springfield, Massachusetts, including surrounding Western Massachusetts and northern Connecticut communities. Available 24/7. Free quotes.
+
+- Based in Agawam, MA (service-area business, no public office)
+- Phone: 413-374-4935
+- Email: info@janimarkllc.com
+- Hours: Open 24 hours, 7 days a week
+
+## Pages
+
+- [Home](https://www.janimarkllc.com/): Overview of commercial and office cleaning services in Greater Springfield, MA
+- [Home (Markdown)](https://www.janimarkllc.com/index.md): Plain-text Markdown version of the homepage
+- [Services](https://www.janimarkllc.com/#services): Office and corporate cleaning, commercial facility cleaning, restroom sanitization, common area and high-touch disinfection, custom cleaning plans
+- [About](https://www.janimarkllc.com/#about): About JaniMark LLC
+- [Request a Free Quote](https://www.janimarkllc.com/#contact): Quote request form and contact details
+
+## Optional
+
+- [Full Content](https://www.janimarkllc.com/llms-full.txt): Complete site content in a single file
+- [Sitemap](https://www.janimarkllc.com/sitemap.xml)
