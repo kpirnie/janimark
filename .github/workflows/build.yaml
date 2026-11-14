@@ -1,0 +1,71 @@
+name: Builder
+
+on:
+  push:
+    branches: ["main"]
+
+concurrency:
+  group: build-main
+  cancel-in-progress: true
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.4
+          extensions: mbstring
+          tools: composer
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Minify assets
+        run: composer minify
+
+      - name: Prune dev dependencies
+        run: composer install --no-interaction --prefer-dist --no-dev --optimize-autoloader
+
+      - name: Stage deployable files
+        run: |
+          DIST="${RUNNER_TEMP}/dist"
+          mkdir -p "${DIST}"
+          rsync -a ./ "${DIST}/" \
+            --exclude '.git/' \
+            --exclude '.github/' \
+            --exclude '.gitignore' \
+            --exclude 'build/' \
+            --exclude 'build.sh' \
+            --exclude 'composer.json' \
+            --exclude 'composer.lock' \
+            --exclude 'config.sample.php' \
+            --exclude 'config.php' \
+            --exclude 'readme.md' \
+            --exclude 'assets/css/style.css' \
+            --exclude 'assets/js/main.js'
+          find "${DIST}" -type d -exec chmod 755 {} \;
+          find "${DIST}" -type f -exec chmod 644 {} \;
+
+      - name: Package zip
+        run: |
+          cd "${RUNNER_TEMP}/dist"
+          zip -rq "${GITHUB_WORKSPACE}/janimark.zip" .
+
+      - name: Publish latest release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release delete latest --cleanup-tag --yes || true
+          gh release create latest janimark.zip \
+            --target "${GITHUB_SHA}" \
+            --title "Latest" \
+            --notes "Built from ${GITHUB_SHA::7} on $(date -u +'%Y-%m-%d %H:%M UTC')" \
+            --latest
