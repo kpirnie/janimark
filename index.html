@@ -218,11 +218,7 @@
         }
         </script>
         <!--
-        <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": ["LocalBusiness", "ProfessionalService"],
-            "@id": "https://www.janimarkllc.com/#organization",
+        The reviews go inside the LocalBusiness node in the @graph. Above "knowsAbout": [
             "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "5",
@@ -262,17 +258,15 @@
                     }
                 }
             ]
-        }
-        </script>
         -->
     </head>
 
-    <body>
+    <body itemscope itemtype="https://schema.org/ProfessionalService" itemid="https://www.janimarkllc.com/#organization">
         
         <header class="site-header" id="top">
             <div class="container header-inner">
-                <a href="/" class="site-brand" aria-label="JaniMark, LLC - Home">
-                    <img src="assets/images/janimarkllc-62h.webp" alt="JaniMark LLC" class="brand-logo" width="235" height="62">
+                <a href="/" class="site-brand" aria-label="JaniMark, LLC - Home" itemprop="url">
+                    <img src="assets/images/janimarkllc-62h.webp" alt="JaniMark LLC" class="brand-logo" width="235" height="62" itemprop="logo">
                 </a>
                 <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-controls="primary-navigation" aria-expanded="false">
                     <svg class="icon icon-menu"><use href="assets/images/icons.svg#icon-menu"></use></svg>
@@ -296,7 +290,7 @@
         <main id="main-content">
             <section class="hero" aria-labelledby="hero-title">
                 <div class="hero-image" aria-hidden="true">
-                    <img src="assets/images/daytime.webp" alt="Commercial &amp; Office Cleaning" width="1648" height="928" fetchpriority="high">
+                    <img src="assets/images/daytime.webp" alt="Commercial &amp; Office Cleaning" width="1648" height="928" fetchpriority="high" itemprop="image">
                 </div>
                 <div class="hero-overlay"></div>
                 <div class="container hero-inner">
@@ -307,7 +301,7 @@
                         <h1 id="hero-title">
                             A Cleaner, Healthier Workplace for Your Business
                         </h1>
-                        <p>
+                        <p itemprop="description">
                             Professional, reliable commercial cleaning services for offices and businesses throughout the Greater Springfield, MA area.
                         </p>
                         <div class="hero-actions">
@@ -354,26 +348,27 @@
                         <p>
                             Keep your workplace clean, safe, and professional with customized cleaning services tailored to your business's needs.
                         </p>
-                        <ul class="service-list">
-                            <li>
+                        <ul class="service-list" itemprop="hasOfferCatalog" itemscope itemtype="https://schema.org/OfferCatalog">
+                            <meta itemprop="name" content="Commercial Cleaning Services">
+                            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
                                 <svg class="icon"><use href="assets/images/icons.svg#icon-check"></use></svg>
-                                Office &amp; Corporate Cleaning
+                                <span itemprop="itemOffered" itemscope itemtype="https://schema.org/Service" itemid="https://www.janimarkllc.com/#service-office-cleaning"><span itemprop="name">Office &amp; Corporate Cleaning</span></span>
                             </li>
-                            <li>
+                            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
                                 <svg class="icon"><use href="assets/images/icons.svg#icon-check"></use></svg>
-                                Commercial Facility Cleaning
+                                <span itemprop="itemOffered" itemscope itemtype="https://schema.org/Service" itemid="https://www.janimarkllc.com/#service-commercial-cleaning"><span itemprop="name">Commercial Facility Cleaning</span></span>
                             </li>
-                            <li>
+                            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
                                 <svg class="icon"><use href="assets/images/icons.svg#icon-check"></use></svg>
-                                Restroom Sanitization
+                                <span itemprop="itemOffered" itemscope itemtype="https://schema.org/Service" itemid="https://www.janimarkllc.com/#service-restroom-sanitization"><span itemprop="name">Restroom Sanitization</span></span>
                             </li>
-                            <li>
+                            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
                                 <svg class="icon"><use href="assets/images/icons.svg#icon-check"></use></svg>
-                                Common Area &amp; High-Touch Disinfection
+                                <span itemprop="itemOffered" itemscope itemtype="https://schema.org/Service" itemid="https://www.janimarkllc.com/#service-disinfection"><span itemprop="name">Common Area &amp; High-Touch Disinfection</span></span>
                             </li>
-                            <li>
+                            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
                                 <svg class="icon"><use href="assets/images/icons.svg#icon-check"></use></svg>
-                                Custom Cleaning Plans
+                                <span itemprop="itemOffered" itemscope itemtype="https://schema.org/Service" itemid="https://www.janimarkllc.com/#service-custom-plan"><span itemprop="name">Custom Cleaning Plans</span></span>
                             </li>
                         </ul>
                         <a href="#contact" class="button button-primary">
@@ -512,7 +507,7 @@
                                 <h3>Email</h3>
                                 <p>
                                     <a href="mailto:info@janimarkllc.com">
-                                        info@janimarkllc.com
+                                        <span itemprop="email">info@janimarkllc.com</span>
                                     </a>
                                 </p>
                             </div>
@@ -523,7 +518,7 @@
                                 <h3>Phone</h3>
                                 <p>
                                     <a href="tel:413-374-4935">
-                                        413-374-4935
+                                        <span itemprop="telephone">413-374-4935</span>
                                     </a>
                                 </p>
                             </div>
@@ -532,7 +527,7 @@
                             <svg class="icon"><use href="assets/images/icons.svg#icon-pin"></use></svg>
                             <div>
                                 <h3>Service Area</h3>
-                                <p>Greater Springfield, MA</p>
+                                <p itemprop="areaServed">Greater Springfield, MA</p>
                                 <p class="service-area-description">
                                     Proudly serving Springfield and surrounding communities throughout Western Massachusetts.
                                 </p>
@@ -541,6 +536,12 @@
                         <div class="service-area-map">
                             <img src="assets/images/massachusetts-service-area.svg" alt="Map highlighting the Greater Springfield service area in Western Massachusetts" width="500" height="260" loading="lazy" decoding="async">
                         </div>
+                        <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress" hidden>
+                            <meta itemprop="addressLocality" content="Agawam">
+                            <meta itemprop="addressRegion" content="MA">
+                            <meta itemprop="addressCountry" content="US">
+                        </div>
+                        <meta itemprop="openingHours" content="Mo-Su 00:00-23:59">
                     </aside>
                 </div>
             </section>
@@ -555,7 +556,7 @@
         <footer class="site-footer">
             <div class="container footer-inner">
                 <div class="footer-brand">
-                    <strong>JaniMark, LLC</strong>
+                    <strong itemprop="name">JaniMark, LLC</strong>
                 </div>
                 <span class="footer-divider" aria-hidden="true"></span>
                 <p>Commercial &amp; Office Cleaning</p>
