@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /sendit.php
+Disallow: /vendor/
+
+Sitemap: https://www.janimarkllc.com/sitemap.xml
