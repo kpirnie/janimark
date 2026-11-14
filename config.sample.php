@@ -26,9 +26,9 @@ return [
     // who the message is sent from and who receives it
     'mail' => [
         'from_email' => 'info@janimarklls.com',
-        'from_name' => 'JaniMark, LLC Website',
+        'from_name' => 'JaniMark LLC Website',
         'to_email' => 'info@janimarkllc.com',
-        'to_name' => 'JaniMark, LLC',
+        'to_name' => 'JaniMark LLC',
     ],
 
     // form protection, the secret signs the time token (use a long random string)
